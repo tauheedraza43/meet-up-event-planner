@@ -6,13 +6,15 @@ var cellNoInput = document.getElementById("cellNo");
 var ageInput = document.getElementById("age");
 var modal = document.getElementById("myModal");
 var errorMsg = document.getElementById("error-msg");
+
+
 var database = firebase.database().ref("/");
 var auth = firebase.auth();  // access authentication service
 
 function signup() {
         if(emailInput.value == ""){
             $("#myModal").modal('show'); 
-            errorMsg.innerHTML = "Email Adress Required..";7
+            errorMsg.innerHTML = "Email Adress Required..";
             emailInput.style.border = "1px solid red";
             emailInput.focus();
         }else if(passwordInput.value == ""){
@@ -88,7 +90,10 @@ function login() {
         })
 }
 
-
+var userName = JSON.parse(localStorage.getItem('currentUser')); 
+var greetName = document.getElementById("greet-name");
+greetName.innerHTML = userName.fName;
+console.log(userName);
   
 
 

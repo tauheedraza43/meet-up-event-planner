@@ -24,28 +24,31 @@
 
 </head>
 
-<body>
+<body class="bg1">
   <header>
       <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #007bff; border-bottom: 5px solid #0072ED;">
-    <a class="navbar-brand" href="#">
-      <img src="images/h-shake-o.png" alt="Meet-Up-Planner" style="height:50px; width:75px;"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
-      aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#">
+          <img src="images/h-shake-o.png" alt="Meet-Up-Planner" style="height:50px; width:75px;">
+        </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-        </button>
+      </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="home.html">Home</a>
+        <li class="nav-item">
+          <a class="nav-link  active" href="home.html">Home</a> 
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="all-events.html">Events Wall</a>
+          <a class="nav-link" href="view-event.html">Events Wall</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="my-events.html">My Events</a>
+          <a class="nav-link" href="my-event.html">My Events</a>
         </li>
       </ul>
-
+      <div class="navbar-nav">
+        <h3>Hello <span id="greet-name"></span>&nbsp;&nbsp; </h3>
+        <button class="btn btn-danger" onclick="logout()">Logout</button>
+      </div>
     </div>
   </nav>
 

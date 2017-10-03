@@ -57,3 +57,9 @@ function addEvent(){
 
     } 
 }
+
+
+
+var userName = JSON.parse(localStorage.getItem('currentUser')); 
+var greetName = document.getElementById("greet-name");
+greetName.innerHTML = userName.fName;

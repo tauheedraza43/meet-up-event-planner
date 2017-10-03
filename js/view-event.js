@@ -63,12 +63,11 @@ function render(event){
     btnBox.setAttribute("class" , "btn-box");
     var button = document.createElement("BUTTON");
     button.setAttribute("class", "btn btn-primary");
-    buttonText = document.createTextNode("Intrested");
-    button.appendChild(buttonText);
+    button.innerHTML = "Going";
+    button.setAttribute("id", event.id);
+    button.setAttribute("onClick", "goingEvent(this.id)")
     btnBox.appendChild(button);
-    button.click(function(){
-        intrest(event.id, event.name, event.date, event.description, event.location, currentUser.name, event.time)
-    })
+    
 
     panelBody.appendChild(orgName);
     panelBody.appendChild(eventDate);
@@ -92,22 +91,62 @@ function render(event){
 
 }
 
-function intrest(eventId, eventName, eventDate, eventDescription, eventLocation, userName, eventTime){
+function goingEvent(btnId){
+    var goingUser = JSON.parse(localStorage.getItem('currentUser'))
 
-    var myEvent = {
-      id: eventId,
-      name: eventName,
-      date: eventDate,
-      description : eventDescription,
-      location: eventLocation,
-      userName: currentUser.name,
-      time: eventTime,
-    }
-    console.log(myEvent)
-    document.getElementById(eventId).style.border = "1px solid red"
+    // var myEvent = {
+    //   id: eventId,
+    //   name: eventName,
+    //   date: eventDate,
+    //   description : eventDescription,
+    //   location: eventLocation,
+    //   userName: currentUser.name,
+    //   time: eventTime,
+    // }
+    // console.log(myEvent)
+    // document.getElementById(eventId).style.border = "1px solid red"
 
-    database.child("intrested").push(myEvent).then(
-      alert("added successfully")
-    )
+            if(goingUser.eventarray==undefined){
+                goingUser.eventarray=[];
+                goingUser.eventarray.push(btnId);
+                document.getElementById(btnId).innerHTML="Going &#10004;"
+                localStorage.removeItem("currentUser");
+                localStorage.setItem("currentUser",JSON.stringify(goingUser))
+                database.child("userInfo").child(userInfo.id).set(goingUser)
+                
+            }
+            else{
+                var x=goingUser.eventarray.length;
+                var boolean=false;
+                for(var i=0; i<x;i++){
+                if(goingUser.eventarray[i]==btnId){
+                    $("#newsfeedmodal").modal("show")
+                    boolean=true;
+                }      
+                }
+
+                if(boolean==false){
+                // localStorage.removeItem("currentUser");        
+                goingUser.eventarray.push(btnId);
+                document.getElementById(btnId).innerHTML="&#10004;"
+                
+                // alert()
+                localStorage.setItem("user",JSON.stringify(goingUser))
+                database.child("user").child(useruid).set(goingUser)
+                
+                }
+                
+            }
+
+
+    // database.child("intrested").push(myEvent).then(
+    //   alert("added successfully")
+    // )
 
 }
+
+
+
+var userName = JSON.parse(localStorage.getItem('currentUser')); 
+var greetName = document.getElementById("greet-name");
+greetName.innerHTML = userName.fName;

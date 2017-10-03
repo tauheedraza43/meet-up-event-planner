@@ -59,13 +59,30 @@
   <header>
       <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #007bff; border-bottom: 5px solid #0072ED;">
     <a class="navbar-brand" href="#">
-      <img src="images/h-shake-o.png" alt="Meet-Up-Planner" style="height:50px; width:75px;"> Meet-Up-Planner</a>
+      <img src="images/h-shake-o.png" alt="Meet-Up-Planner" style="height:50px; width:75px;"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
       aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="my-event.html">My Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="view-event.html">Events Wall</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="home.html">Home</a> 
+            </li>
+            
+          </ul>
+      <div class="navbar-nav">
+        <h3>Hello <span id="greet-name"></span>&nbsp;&nbsp; </h3>
+        <button class="btn btn-danger">Logout</button>
+      </div>
 
-    </div>
+        </div>
   </nav>
 
 </header>
@@ -73,8 +90,10 @@
     <div class="container">
 
         <div class="container div-box">
-            <h1>My Events</h1>
-            <div id="events" class="container"></div>
+            <h1 id="heading">My Events</h1>
+            <div id="events" class="container">
+
+            </div>
         </div>    
 
     </div>
@@ -86,7 +105,7 @@
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
     crossorigin="anonymous"></script>
-  <script src="js/view-event.js"></script>
+  <script src="js/my-event.js"></script>
 </body>
 
 
