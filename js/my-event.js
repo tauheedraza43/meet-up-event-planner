@@ -217,6 +217,18 @@ setTimeout(function() {panelDiv.style.display="none";},2000)
 myEventFunc();
 
 
+
+function logout(){
+    localStorage.clear();
+    location = "index.html";
+}
+
 var userName = JSON.parse(localStorage.getItem('currentUser')); 
 var greetName = document.getElementById("greet-name");
+if(userName.fName == undefined){
+    location = "index.html";
+    alert("You Must Have To Sign In For View This Page..");
+}else{
 greetName.innerHTML = userName.fName;
+console.log(userName);
+}

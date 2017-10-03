@@ -90,6 +90,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
     crossorigin="anonymous"></script>
   <script src="js/app.js"></script>
+  <script>
+    var userName = JSON.parse(localStorage.getItem('currentUser')); 
+    if(!userName){
+      alert("You Must Have To Sign In For View This Page..")
+      location = "index.html"
+    }
+  </script>
 </body>
 
 

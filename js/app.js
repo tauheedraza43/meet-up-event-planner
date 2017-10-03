@@ -49,7 +49,7 @@ function signup() {
             var fName2 = fNameInput.value.slice(1).toLowerCase();
             var fName = fName1+fName2;
             var lName1 = lNameInput.value.slice(0,1).toUpperCase();
-            var lName2 = lNameInput.value.slice(0,1).toLowerCase();
+            var lName2 = lNameInput.value.slice(1).toLowerCase();
             var lName = lName1+lName2;
             var email = emailInput.value;
             var password = passwordInput.value;
@@ -90,10 +90,20 @@ function login() {
         })
 }
 
+function logout(){
+    localStorage.clear();
+    location = "index.html";
+}
+
 var userName = JSON.parse(localStorage.getItem('currentUser')); 
 var greetName = document.getElementById("greet-name");
+if(userName.fName == undefined){
+    location = "index.html";
+    alert("You Must Have To Sign In For View This Page..");
+}else{
 greetName.innerHTML = userName.fName;
 console.log(userName);
+}
   
 
 

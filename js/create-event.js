@@ -13,27 +13,27 @@ var database = firebase.database().ref("/");
 function addEvent(){
     if(eventName.value == ""){
             $("#myModal").modal('show'); 
-            errorMsg.innerHTML = "Event Name Required..";7
+            errorMsg.innerHTML = "Event Name Required..";
             eventName.style.border = "1px solid red";
             eventName.focus();
     }else if(eventLocation.value == ""){
             $("#myModal").modal('show'); 
-            errorMsg.innerHTML = "Event Location Required..";7
+            errorMsg.innerHTML = "Event Location Required..";
             eventLocation.style.border = "1px solid red";
             eventLocation.focus();
     }else if(eventDate.value == ""){
             $("#myModal").modal('show'); 
-            errorMsg.innerHTML = "Event Name Required..";7
+            errorMsg.innerHTML = "Event Name Required..";
             eventLocation.style.border = "1px solid red";
             eventLocation.focus();
     }else if(eventTime.value == ""){
             $("#myModal").modal('show'); 
-            errorMsg.innerHTML = "Event Name Required..";7
+            errorMsg.innerHTML = "Event Name Required..";
             eventTime.style.border = "1px solid red";
             eventTime.focus();
     }else if(eventDescription.value == ""){
             $("#myModal").modal('show'); 
-            errorMsg.innerHTML = "Event Name Required..";7
+            errorMsg.innerHTML = "Event Name Required..";
             eventDescription.style.border = "1px solid red";
             eventDescription.focus();
     }else{
@@ -60,6 +60,18 @@ function addEvent(){
 
 
 
+
+function logout(){
+    localStorage.clear();
+    location = "index.html";
+}
+
 var userName = JSON.parse(localStorage.getItem('currentUser')); 
 var greetName = document.getElementById("greet-name");
+if(userName.fName == undefined){
+    location = "index.html";
+    alert("You Must Have To Sign In For View This Page..");
+}else{
 greetName.innerHTML = userName.fName;
+console.log(userName);
+}

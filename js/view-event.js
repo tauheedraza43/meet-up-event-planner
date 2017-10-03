@@ -40,7 +40,7 @@ function render(event){
     panelBody.setAttribute("class", "panel-body");
 
     var orgName = document.createElement("H5");
-    orgNameText = document.createTextNode( "Event Organizer: " + currentUser.fName + " " + currentUser.lName);
+    orgNameText = document.createTextNode( "Event Organizer: " + event.organiser);
     orgName.appendChild(orgNameText)
 
     var eventDate = document.createElement("H6");
@@ -147,6 +147,17 @@ function goingEvent(btnId){
 
 
 
+function logout(){
+    localStorage.clear();
+    location = "index.html";
+}
+
 var userName = JSON.parse(localStorage.getItem('currentUser')); 
 var greetName = document.getElementById("greet-name");
+if(userName.fName == undefined){
+    location = "index.html";
+    alert("You Must Have To Sign In For View This Page..");
+}else{
 greetName.innerHTML = userName.fName;
+console.log(userName);
+}
